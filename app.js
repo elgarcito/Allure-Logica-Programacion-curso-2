@@ -1,9 +1,20 @@
-let titulo = document.querySelector('h1');
-titulo.innerHTML = 'Juego del número secreto';
 
-let parrafo = document.querySelector('p');
-parrafo.innerHTML = 'Indica un numero del 1 al 10';
+let numeroSecreto = generarNumeroSecreto();
 
-function intentoDeUsuario(){
-    alert('Click desde el boton')
+function verificarIntento(){
+    let numeroDeUsuario=parseInt(document.getElementById('valorUsuario').value);
+    console.log(numeroDeUsuario===numeroSecreto);
 }
+
+function asignarTextoAElemento(elemento,texto) {
+    let elementoHTML = document.querySelector(elemento);
+    elementoHTML.innerHTML = texto;
+}
+
+function generarNumeroSecreto() {
+    return Math.floor(Math.random()*10)+1;
+}
+
+
+asignarTextoAElemento('h1','¡Juego del número secreto!');
+asignarTextoAElemento('p','Indica un número del 1 al 10');
